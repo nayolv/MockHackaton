@@ -1,37 +1,82 @@
-import React from 'react'
-import { useCategory } from '../hooks/useCategory';
+import React, { useState } from "react";
 /* import { Header } from './Header'
 import { Header } from './Header' */
-import "./AdmCategory.scss"
+import "./AdmCategory.scss";
 
-function CategoryPage({recovery}) {
-    const {recovery} = useCategory();
-    console.log(recovery)
-    function backCategories(e) {
+function CategoryPage({ recovery }) {
+  /* const [inputValue, setInputValue] = useState("");
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+      };
+      const handleSubmit = (e) => {
         e.preventDefault();
-        window.location.href = "./allCategories";
-      }
+        if (inputValue.trim().length > 2) {
+          setCategories((cats) => [inputValue, ...cats]);
+          setInputValue("");
+        }
+      };*/
+  return (
+    <>
+      {recovery ? (
+        <div className="divCategories">
+          <h1>CATEGORY</h1>
+          <button>
+            {/*  <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" /> */}
+            Back to categories list
+          </button>
+          <div className="categories">
+            <input className="categoryName" type="text" defaultValue={recovery.name} >
+              {/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}
+            </input>
+            <input className="categoryImage" type="text">
+              {/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}
+            </input>
+            <input className="description" type="text"></input>
+          </div>
+          <div className="buttons">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              {" "}
+              Save{" "}
+            </button>
 
-    return (
-        <>
-    {/*     <Header /> */}
-        <div className = 'divCategories' >
-            <h1>CATEGORY</h1>
-            <button onClick={backCategories}>
-                <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" />Back to categories list</button>
-            <div className ="categories">
-                <input className ="categoryName" type="text" value={recovery.name}>{/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}</input>
-                <input className ="categoryImage"type ="text">{/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}</input>
-                <input className ="description" type ="text"></input>
-            </div>
-            <div className='buttons'>
-            <button onClick={(e)=>{e.preventDefault(); console.log(recovery);}}> Save </button>
             <button> Delete </button>
-            </div>
-       {/*  <Footer />   */}
+          </div>
         </div>
-        </>
-    )
+      ) : (
+        <div className="divCategories">
+          <h1>CATEGORY</h1>
+          <button>
+            {/*  <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" /> */}
+            Back to categories list
+          </button>
+          <div className="categories">
+            <input className="categoryName" type="text">
+              {/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}
+            </input>
+            <input className="categoryImage" type="text">
+              {/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}
+            </input>
+            <input className="description" type="text"></input>
+          </div>
+          <div className="buttons">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              {" "}
+              Save{" "}
+            </button>
+            <button> Delete </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default CategoryPage
+export default CategoryPage;

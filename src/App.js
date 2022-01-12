@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import './css/headerfooter.scss';
 import './css/modal.scss'
 import './css/home.scss'
+import './css/allCategories.scss'
 
 function App() {
   return (

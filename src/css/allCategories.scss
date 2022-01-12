@@ -1,0 +1,34 @@
+.search{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem;
+    padding-bottom: 10px;
+    border-bottom-color: #5ac7bc38;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    .add-category{
+        border: none;
+        background-color: transparent;
+    }
+}
+.grid-categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.Card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .crud-btns{
+        margin: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}

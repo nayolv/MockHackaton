@@ -42,6 +42,7 @@ function CategoryPage({ recovery }) {
               {" "}
               Save{" "}
             </button>
+
             <button> Delete </button>
           </div>
         </div>

@@ -3,22 +3,13 @@ import React, { useState } from "react";
 import { Header } from './Header' */
 import "./AdmCategory.scss";
 
-function CategoryPage({ recovery }) {
-    function backCategories(e) {
+
+function CategoryPage({ recovery, defaultData, editUser }) {
+  
+function backCategories(e) {
         e.preventDefault();
         window.location.href = "./allCategories";
       }
-  /* const [inputValue, setInputValue] = useState("");
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-      };
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        if (inputValue.trim().length > 2) {
-          setCategories((cats) => [inputValue, ...cats]);
-          setInputValue("");
-        }
-      };*/
   return (
     <>
       {recovery ? (
@@ -29,16 +20,36 @@ function CategoryPage({ recovery }) {
           <h1>{recovery.name}</h1>
             </section>
           <div className="categories">
-          <input className ="categoryName" type="text" placeholder={recovery.name}></input>
+
+            <input
+              className="categoryName"
+              name="name"
+              type="text"
+              defaultValue={recovery.name}
+              onChange={(e)=>defaultData(e)}
+            >
+              {/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}
+            </input>
                 <div className = "folderCategory">
-                <input className ="categoryImage"type ="text" placeholder={recovery.url}></input> 
-                <img className= "imgFolder" src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> 
+            <input name="url" className="categoryImage" type="text" defaultValue={recovery.url}
+              onChange={defaultData}></input>
+              <img className= "imgFolder" src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> 
                 </div>
-                <input className ="description" type ="text" placeholder={recovery.description}></input>
+
+            <input name="description" className="description" type="text" defaultValue={recovery.description}
+              onChange={defaultData}></input>
           </div>
           <div className="buttons">
-          <button className='btnSave'> Save </button>
-            <button className='btnDelete'> Delete </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                editUser(recovery.id);
+                window.location.href = "./allCategories"
+              }}
+            >
+              Save
+            </button>
+            <button> Delete </button>
           </div>
         </div>
       ) : (
@@ -57,6 +68,7 @@ function CategoryPage({ recovery }) {
           <div className="buttons">
           <button className='btnSave'> Save </button>
             <button className='btnDelete'> Delete </button>
+
           </div>
         </div>
       )}

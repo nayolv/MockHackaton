@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Search,
@@ -12,19 +11,15 @@ import { useCategory } from "../hooks/useCategory";
 import CategoryPage from "./Category";
 
 function AllCategories() {
-  const { category } = useCategory();
-  const [recovery, setRecovery] = useState({
-    id: "",
-    name: "",
-    description: "",
-    image: "",
-  });
-  const [conditionalRender, setConditionalRender] = useState(true);
 
   function admCategory(e) {
     e.preventDefault();
     window.location.href = "./category";
   }
+
+  const {recoverDataFn, category, conditionalRender, recovery, defaultData, changeCondition, editUser } = useCategory();
+  
+  
 
   return (
     <>
@@ -34,6 +29,7 @@ function AllCategories() {
             <button className="add-category" onClick={admCategory}>
               <img src={add} alt="logo-img" className="add" /> Add new category</button>
         <Search>
+
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -59,14 +55,11 @@ function AllCategories() {
                       className="edit"
                       onClick={(e) => {
                         e.preventDefault();
-                        setConditionalRender(false);
-                        setRecovery({
-                          id: card.id,
-                          name: card.name,
-                          description: card.description,
-                          url: card.url,
-                        });
+                        changeCondition()
+                        recoverDataFn(card.id, card.name, card.description, card.url)
+
                       }}
+                      
                     />
                     <img src={trash} alt="logo-img" className="delete" />
                     </section>
@@ -75,7 +68,7 @@ function AllCategories() {
             </div>
         </>
       ) : (
-        <CategoryPage recovery={recovery} />
+        <CategoryPage recovery={recovery} defaultData={defaultData} editUser={editUser} />
       )}
 
     </>

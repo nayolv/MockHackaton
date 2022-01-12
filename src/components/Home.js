@@ -9,10 +9,10 @@ import promo1 from "../img/Promo-1.gif";
 import promo2 from "../img/Promo-2.gif";
 
 function Home() {
-    function allCategories(e) {
-        e.preventDefault();
-        window.location.href = "./allCategories";
-      }
+  function allCategories(e) {
+    e.preventDefault();
+    window.location.href = "./allCategories";
+  }
   return (
     <div className="home-container">
       <section className="items-container">
@@ -37,10 +37,12 @@ function Home() {
       </section>
 
       <section className="promos">
-        <img src={promo1} alt="promo1" id="promo1" />
-        <img src={promo2} alt="promo2" id="promo2" />
+        <section>
+          <img src={promo1} alt="promo1" id="promo1" />
+          <img src={promo2} alt="promo2" id="promo2" />
+        </section>
       </section>
-      <section  className="see-categories">
+      <section className="see-categories">
         <section onClick={allCategories} className="link-categories">
           <img
             src="https://i.ibb.co/86rC1ds/right-arrow-3-2x.png"
@@ -51,9 +53,11 @@ function Home() {
       </section>
 
       <section className="categories-container">
-        <img src="https://i.ibb.co/dPRWyNJ/MEN2.png" alt="category" />
-        <img src="https://i.ibb.co/ccvVnxZ/SHOES.png" alt="category" />
-        <img src="https://i.ibb.co/VMjXrjP/WOMAN-2.png" alt="category" />
+        <section>
+          <img src="https://i.ibb.co/dPRWyNJ/MEN2.png" alt="category" />
+          <img src="https://i.ibb.co/ccvVnxZ/SHOES.png" alt="category" />
+          <img src="https://i.ibb.co/VMjXrjP/WOMAN-2.png" alt="category" />
+        </section>
       </section>
     </div>
   );

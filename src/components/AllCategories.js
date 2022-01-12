@@ -11,6 +11,10 @@ import trash from "../assets/trash.png";
 import { useCategory } from "../hooks/useCategory";
 
 function AllCategories() {
+    function addCategories(e) {
+        e.preventDefault();
+        window.location.href = "./category";
+      }
   const { category } = useCategory();
   return (
     <div>
@@ -25,7 +29,7 @@ function AllCategories() {
       </Search>
       <div>
         <img src={add} alt="logo-img" className="add" />
-        <button className="add-category"> Add new category</button>
+        <button onClick={addCategories}className="add-category"> Add new category</button>
         {category &&
           category.map((card) => (
             <div key={card.id} className="Card">

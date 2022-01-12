@@ -4,12 +4,18 @@ import { Header } from './Header' */
 import "./AdmCategory.scss"
 
 function Category() {
+    function backCategories(e) {
+        e.preventDefault();
+        window.location.href = "./allCategories";
+      }
+
     return (
         <>
     {/*     <Header /> */}
         <div className = 'divCategories' >
             <h1>CATEGORY</h1>
-            <button>{/*  <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" /> */}Back to categories list</button>
+            <button onClick={backCategories}>
+                <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" />Back to categories list</button>
             <div className ="categories">
                 <input className ="categoryName" type="text">{/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}</input>
                 <input className ="categoryImage"type ="text">{/* <img src="https://i.ibb.co/GQZQSWz/folder-2.png" alt="150519-1" border="0" /> */}</input>

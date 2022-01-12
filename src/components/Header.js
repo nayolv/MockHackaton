@@ -4,11 +4,16 @@ import { FormLogin } from "./FormLogin";
 import { ModalWindow } from "./ModalWindow";
 
 export const Header = () => {
+  function home(e) {
+    e.preventDefault();
+    window.location.href = "/";
+  }
   const { handleClose, handleOpen, open } = useTools();
   return (
     <header>
       <nav>
         <img
+        onClick={home}
           className="logo"
           src="https://i.ibb.co/P9cWzMK/Rectangle-3.png"
           alt="Rectangle-3"

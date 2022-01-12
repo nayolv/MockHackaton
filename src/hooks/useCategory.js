@@ -15,7 +15,7 @@ export const useCategory = () => {
   } */
 
   const getCategory = async () => {
-    const resp = await dataApi.get("http://localhost:5000/categories");
+    const resp = await dataApi.get("https://fake-api-mock.herokuapp.com/categories");
     setCategory(resp.data);
     console.log(category);
   };

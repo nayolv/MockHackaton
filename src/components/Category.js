@@ -1,9 +1,12 @@
 import React from 'react'
+import { useCategory } from '../hooks/useCategory';
 /* import { Header } from './Header'
 import { Header } from './Header' */
 import "./AdmCategory.scss"
 
 function Category() {
+    const {recovery} = useCategory();
+    console.log(recovery)
     function backCategories(e) {
         e.preventDefault();
         window.location.href = "./allCategories";

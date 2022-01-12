@@ -4,6 +4,10 @@ import { Header } from './Header' */
 import "./AdmCategory.scss";
 
 function CategoryPage({ recovery }) {
+    function backCategories(e) {
+        e.preventDefault();
+        window.location.href = "./allCategories";
+      }
   /* const [inputValue, setInputValue] = useState("");
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -20,8 +24,8 @@ function CategoryPage({ recovery }) {
       {recovery ? (
         <div className="divCategories">
           <h1>CATEGORY</h1>
-          <button>
-            {/*  <img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" /> */}
+          <button onClick={backCategories}>
+            {<img src="https://i.ibb.co/pvDKWpc/150519-1.png" alt="150519-1" border="0" />}
             Back to categories list
           </button>
           <div className="categories">

@@ -9,7 +9,6 @@ import add from "../assets/add.png";
 import edit from "../assets/edit.png";
 import trash from "../assets/trash.png";
 import { useCategory } from "../hooks/useCategory";
-import { Card } from "@mui/material";
 import CategoryPage from "./Category";
 
 function AllCategories() {
@@ -22,13 +21,19 @@ function AllCategories() {
   });
   const [conditionalRender, setConditionalRender] = useState(true);
 
+  function admCategory(e) {
+    e.preventDefault();
+    window.location.href = "./category";
+  }
+
   return (
     <>
       {conditionalRender ? (
         <>
-          {" "}
-          <div>
-            <Search>
+        <div className="search">
+            <button className="add-category" onClick={admCategory}>
+              <img src={add} alt="logo-img" className="add" /> Add new category</button>
+        <Search>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -37,9 +42,8 @@ function AllCategories() {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-            <div>
-              <img src={add} alt="logo-img" className="add" />
-              <button className="add-category"> Add new category</button>
+        </div>            
+            <div className="grid-categories">
               {category &&
                 category.map((card) => (
                   <div key={card.id} className="Card">
@@ -68,7 +72,6 @@ function AllCategories() {
                   </div>
                 ))}
             </div>
-          </div>
         </>
       ) : (
         <CategoryPage recovery={recovery} />

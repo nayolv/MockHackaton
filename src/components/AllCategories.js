@@ -52,7 +52,7 @@ function AllCategories() {
                       alt="img-Category"
                       className="img-card"
                     />
-                    <p>{card.name}</p>
+                    <section className='crud-btns'>
                     <img
                       src={edit}
                       alt="logo-img"
@@ -69,6 +69,7 @@ function AllCategories() {
                       }}
                     />
                     <img src={trash} alt="logo-img" className="delete" />
+                    </section>
                   </div>
                 ))}
             </div>

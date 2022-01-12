@@ -43,10 +43,8 @@ function CategoryPage({ recovery }) {
                 e.preventDefault();
               }}
             >
-              {" "}
               Save{" "}
             </button>
-
             <button> Delete </button>
           </div>
         </div>
